@@ -121,7 +121,7 @@ contract EventTicketsV2 {
     */
     function buyTickets(uint _eventId, uint _noOfTickets) external payable {
         require(events[_eventId].isOpen, "Event is not Open");
-        require(msg.value > PRICE_TICKET * _noOfTickets, "Insufficient funds sent");
+        require(msg.value >= PRICE_TICKET * _noOfTickets, "Insufficient funds sent");
         require(events[_eventId].totalTickets >= events[_eventId].sales + _noOfTickets, "Not enough tickets");
 
         events[_eventId].buyers[msg.sender] += _noOfTickets;
@@ -160,8 +160,8 @@ contract EventTicketsV2 {
         This function takes one parameter, an event ID
         This function returns a uint, the number of tickets that the msg.sender has purchased.
     */
-    function getBuyerNumberTickets(uint _eventId) public view returns(uint noOfTickets) {
-        noOfTickets = events[_eventId].buyers[msg.sender];
+    function getBuyerNumberTickets(uint _eventId) public view returns(uint) {
+        return events[_eventId].buyers[msg.sender];
     }
 
     /*

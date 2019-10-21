@@ -24,7 +24,7 @@ If your tests do not pass, modify the contract, recompile, redeploy and retest. 
 ## High Level Steps:
 - Create a struct with the following: description, website, tickets, sales, buyers as mapping, isOpen as boolean.
 - Create a constructor and a modifier
-- Create functions: readEvent(), buyTickets(), getRefund(), endSale().
+- Create functions: `readEvent()`, `buyTickets()`, `getRefund()`, `endSale()`.
 
 ## Steps:
 
